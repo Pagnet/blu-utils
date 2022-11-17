@@ -1,0 +1,11 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "plugins": ["import"],
+  "parserOptions": {
+    "ecmaVersion": 6
+  } 
+}
