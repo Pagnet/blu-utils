@@ -2,12 +2,7 @@
   <h1>  
     Blu Utils 
   </h1>
-  <pre>yarn add i <a href="...">....</a></pre>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+  <pre>yarn add <a href="...">....</a></pre> 
 </div>
 
 - **Utils**
