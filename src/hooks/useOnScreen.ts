@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from 'react';
 
 export default function useOnScreen(ref: any, options = {}) {
   const [inView, setInView] = useState(false);
-
   const observer = useMemo(
     () =>
       new IntersectionObserver(
@@ -14,7 +13,6 @@ export default function useOnScreen(ref: any, options = {}) {
 
   useEffect(() => {
     observer.observe(ref.current);
-
     return () => {
       observer.disconnect();
     };
