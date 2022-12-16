@@ -3,7 +3,6 @@
   "useWorkspaces": true,
   "version": "1.0.0",
   "npmClient": "yarn",
-  "packages": ["src/*"],
   "ignoreChanges": ["ignored-file", "**/*.md"],
   "yes": true,
   "command": {

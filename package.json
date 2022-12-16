@@ -2,7 +2,6 @@
   "name": "@useblu/utils",
   "version": "1.0.0",
   "license": "MIT",
-  "private": true,
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -48,8 +47,5 @@
   "bugs": {
     "url": "https://github.com/Pagnet/blu-utils/issues"
   },
-  "homepage": "https://github.com/Pagnet/blu-utils#readme",
-  "workspaces": [
-    "src/*"
-  ]
+  "homepage": "https://github.com/Pagnet/blu-utils#readme"
 }
