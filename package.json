@@ -47,8 +47,5 @@
   "bugs": {
     "url": "https://github.com/Pagnet/blu-utils/issues"
   },
-  "homepage": "https://github.com/Pagnet/blu-utils#readme",
-  "workspaces": [
-    "packages/*"
-  ]
+  "homepage": "https://github.com/Pagnet/blu-utils#readme"
 }
