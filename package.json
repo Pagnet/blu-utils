@@ -1,5 +1,5 @@
 {
-  "name": "blu-utils",
+  "name": "@useblu/utils",
   "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/index.js",
@@ -29,5 +29,22 @@
     "ts-node-dev": "^2.0.0",
     "tsup": "^6.4.0",
     "typescript": "^4.8.4"
-  }
+  },
+  "description": "<div align=\"center\">   <h1>       Blu Utils    </h1>   <pre>yarn add <a href=\"...\">....</a></pre>  </div>",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pagnet/blu-utils.git"
+  },
+  "keywords": [
+    "utils"
+  ],
+  "author": "Blu",
+  "bugs": {
+    "url": "https://github.com/Pagnet/blu-utils/issues"
+  },
+  "homepage": "https://github.com/Pagnet/blu-utils#readme"
 }
