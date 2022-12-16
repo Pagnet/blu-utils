@@ -1,5 +1,25 @@
 {
   "$schema": "node_modules/lerna/schemas/lerna-schema.json",
   "useWorkspaces": true,
-  "version": "0.0.0"
+  "version": "1.0.0",
+  "npmClient": "yarn",
+  "packages": ["src/*"],
+  "ignoreChanges": ["ignored-file", "**/*.md"],
+  "yes": true,
+  "command": {
+    "version": {
+      "allowBranch": ["master", "next"],
+      "conventionalCommits": true,
+      "noPrivate": true,
+      "createRelease": "github",
+      "message": "chore(release): publish %s [skip ci]",
+      "loglevel": "verbose"
+    },
+    "publish": {
+      "verifyAccess": false,
+      "preDistTag": "next",
+      "loglevel": "verbose",
+      "contents": "dist"
+    }
+  }
 }
