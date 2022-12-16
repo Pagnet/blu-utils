@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           # Check out as an admin to allow for pushing back to master
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GH_OAUTH_TOKEN }}
           # We need to fetch all tags and branches
           fetch-depth: 0
 
