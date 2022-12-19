@@ -2,7 +2,7 @@
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
-The following is a set of guidelines for contributing to Ocean DS and its packages. Please take a moment to review this document in order to make the contribution process straightforward and effective for everyone involved.
+The following is a set of guidelines for contributing to Blu Utils. Please take a moment to review this document in order to make the contribution process straightforward and effective for everyone involved.
 
 ### Table Of Contents
 
@@ -38,8 +38,8 @@ First of all, you will need to create an [issue](#issues) for the feature or bug
 
 Unsure where to begin contributing? You can start by looking through these issues:
 
-- [Good first issues](https://github.com/ocean-ds/ocean-web/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
-- [Help wanted issues](https://github.com/ocean-ds/ocean-web/issues?q=is%3Aopen+is%3Aissue+sort%3Acomments-desc+label%3A%22help+wanted%22) - issues which should be a bit more involved than beginner issues.
+- [Good first issues](https://github.com/Pagnet/blu-utils/issues?q=is%3Aopen+is%3Aissue+label%3A%22good+first+issue%22+sort%3Acomments-desc) - issues which should only require a few lines of code, and a test or two.
+- [Help wanted issues](https://github.com/Pagnet/blu-utils/issues?q=is%3Aopen+is%3Aissue+sort%3Acomments-desc+label%3A%22help+wanted%22) - issues which should be a bit more involved than beginner issues.
 
 ### Making Changes
 
@@ -86,18 +86,11 @@ It’s important that every piece of code is reviewed by at least one core contr
 </details>
 
 ```bash
-git clone https://github.com/ocean-ds/ocean-web.git # bonus: use your own fork for this step
-cd ocean-web
+git clone https://github.com/Pagnet/blu-utils/
+ # bonus: use your own fork for this step
+cd blu-utils
 yarn # install dependencies
 ```
-
-## Project Structure
-
-This is a [monorepo using lerna](https://medium.com/hy-vee-engineering/creating-a-monorepo-with-lerna-yarn-workspaces-cf163908965d); all packages are listed in the `packages/` folder.
-
-There are npm scripts for root level and package level; Both are usually the same, the difference is when you are at the root level you will execute process across all packages.
-
-## Styleguides
 
 ### Language
 
@@ -144,5 +137,4 @@ The code that is written needs to be tested to ensure that it achieves the desir
 ### Documentation
 
 - Use [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) to create project documentation.
-- We use Storybook to document our components.
-- You must write stories using [MDX format](https://storybook.js.org/docs/react/writing-docs/mdx).
+ 
