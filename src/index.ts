@@ -3,7 +3,7 @@ export { default as formatterMoney } from './utils/formatterMoney';
 // hooks
 export { default as useOnScreen } from './hooks/useOnScreen';
 
-// normalizes
+// normalizers
 export { default as normalizeCpfOrCnpj } from './normalizers/normalizeCpfOrCnpj';
 
 // validations
