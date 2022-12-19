@@ -35,10 +35,6 @@ function strip(number: string, strict?: boolean): string {
   return (number || '').replace(regex, '');
 }
 
-function format(number: string): string {
-  return strip(number).replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-}
-
 export default function isCnpj(number: string, strict?: boolean): boolean {
   const stripped: string = strip(number, strict);
 
