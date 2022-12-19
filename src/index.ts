@@ -4,7 +4,7 @@ export { default as formatterMoney } from './utils/formatterMoney';
 export { default as useOnScreen } from './hooks/useOnScreen';
 
 // normalizes
-export { default as normalizeCpfOrCnpj } from './normalizes/normalizeCpfOrCnpj';
+export { default as normalizeCpfOrCnpj } from './normalizers/normalizeCpfOrCnpj';
 
 // validations
 export { default as isCpf } from './validations/isCpf';
