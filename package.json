@@ -1,13 +1,20 @@
 {
   "name": "@useblu/utils",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "private": false,
   "license": "MIT",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "exports": {
+		"default": "./dist/index.cjs",
+		"require": "./dist/index.cjs",
+		"import": "./dist/index.mjs",
+		"node": "./dist/index.cjs"
+	}, 
+  "type": "module",
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "build": "tsup src/index.ts",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts --transpileOnly",
     "lint": "eslint src/**/*.ts* --fix",
     "test": "jest",
