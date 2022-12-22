@@ -35,7 +35,7 @@ function strip(number: string, strict?: boolean): string {
   return (number || '').replace(regex, '');
 }
 
-export default function isCnpj(number: string, strict?: boolean): boolean {
+export default function isCpf(number: string, strict?: boolean): boolean {
   const stripped: string = strip(number, strict);
 
   if (!stripped || stripped.length !== 11 || BLACKLIST.includes(stripped)) {
