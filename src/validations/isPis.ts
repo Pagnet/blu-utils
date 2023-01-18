@@ -45,7 +45,7 @@ function strip(number: string, strict?: boolean): string {
  * @param strict parameter for strict validations
  * @returns boolean
  */
-export default function isNIT(number: string, strict?: boolean): boolean {
+export default function isPis(number: string, strict?: boolean): boolean {
   const stripped: string = strip(number, strict);
   
   const digit: number = parseInt(stripped.slice(-1), 10);
