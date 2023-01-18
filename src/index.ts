@@ -9,6 +9,7 @@ export { default as normalizeNIT } from './normalizers/normalizeNIT';
 
 // utils
 export { default as maskString } from './utils/maskString';
+export { default as stripNumbers } from './utils/stripNumbers';
 
 // validations
 export { default as isCpf } from './validations/isCpf';
