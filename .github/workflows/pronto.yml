@@ -1,0 +1,49 @@
+name: Pronto
+on: [pull_request]
+
+jobs:
+  pronto:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - run: |
+          git fetch --no-tags --prune origin +refs/heads/*:refs/remotes/origin/*
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+      - name: Ruby gem cache
+        uses: actions/cache@v1
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+      - name: Install gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Cache node modules
+        uses: actions/cache@v2
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.yarn
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - name: Install eslint
+        run: |
+          npm install -g eslint
+      - name: Install packages
+        run: |
+          yarn install --pure-lockfile
+      - name: Run Pronto
+        run: |
+          PRONTO_PULL_REQUEST_ID="${{ github.event.pull_request.number }}" PRONTO_GITHUB_ACCESS_TOKEN="${{ github.token }}" bundle exec pronto run -f github_status github_pr -c origin/${{ github.base_ref }}
