@@ -8,6 +8,7 @@ export { default as normalizePhone } from './normalizers/normalizePhone';
 
 // utils
 export { default as maskString } from './utils/maskString';
+export { default as getStates } from './utils/getStates';
 
 // validations
 export { default as isCpf } from './validations/isCpf';
