@@ -12,3 +12,4 @@ export { default as maskString } from './utils/maskString';
 // validations
 export { default as isCpf } from './validations/isCpf';
 export { default as isCnpj } from './validations/isCnpj';
+export { default as isCep } from './validations/isCep';
