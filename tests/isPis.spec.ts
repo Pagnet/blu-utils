@@ -14,13 +14,13 @@ describe('test isPis', () => {
     expect(isPis('77777777777')).toBe(false);
     expect(isPis('88888888888')).toBe(false);
     expect(isPis('99999999999')).toBe(false);
-  });
-  test('spec list nit valid', () => {
+  });  
+  test('spec list pis valid', () => {
     expect(isPis('12345678994')).toBe(true);
     expect(isPis('08811848944')).toBe(true);
     expect(isPis('82311848944')).toBe(true);
   });
-  test('spec list nit invalid', () => {
+  test('spec list pis invalid', () => {
     expect(isPis('10132002256')).toBe(false);
     expect(isPis('10113200536')).toBe(false);
     expect(isPis('02213415285')).toBe(false);

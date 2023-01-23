@@ -36,12 +36,12 @@ function verifierDigit(digits: string): number {
 }
 
 /**
- * checks if the number is a NIT (NIS, PIS ou PASEP)
+ * checks if the number is a PIS (NIS, NIT ou PASEP)
  * @param number sequence of numbers to be validated
  * @param strict parameter for strict validations
  * @returns boolean
  */
-export default function isNIT(number: string, strict?: boolean): boolean {
+export default function isPis(number: string, strict?: boolean): boolean {
   const regex: RegExp | undefined = strict ? STRICT_STRIP_REGEX : undefined;
   const stripped: string = stripNumbers(number, regex);
   

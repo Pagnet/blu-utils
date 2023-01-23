@@ -10,6 +10,7 @@ export { default as normalizePis } from './normalizers/normalizePis';
 // utils
 export { default as maskString } from './utils/maskString';
 export { default as stripNumbers } from './utils/stripNumbers';
+export { default as getStates } from './utils/getStates';
 
 // validations
 export { default as isCpf } from './validations/isCpf';
