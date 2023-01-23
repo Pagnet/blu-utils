@@ -1,3 +1,5 @@
+import { stripNumbers } from "../";
+
 const BLACKLIST: Array<string> = [
   '00000000000000',
   '11111111111111',
@@ -32,13 +34,9 @@ export function verifierDigit(digits: string): number {
   return mod < 2 ? 0 : 11 - mod;
 }
 
-export function strip(number: string, strict?: boolean): string {
-  const regex: RegExp = strict ? STRICT_STRIP_REGEX : LOOSE_STRIP_REGEX;
-  return (number || '').replace(regex, '');
-}
-
 export default function isCnpj(number: string, strict?: boolean): boolean {
-  const stripped: string = strip(number, strict);
+  const regex: RegExp | undefined = strict ? STRICT_STRIP_REGEX : undefined;
+  const stripped: string = stripNumbers(number, regex);
 
   if (!stripped || stripped.length !== 14 || BLACKLIST.includes(stripped)) {
     return false;

@@ -1,3 +1,5 @@
+import { stripNumbers } from "../";
+
 const BLACKLIST: Array<string> = [
   '00000000000',
   '11111111111',
@@ -13,7 +15,6 @@ const BLACKLIST: Array<string> = [
 ];
 
 const STRICT_STRIP_REGEX: RegExp = /[.-]/g;
-const LOOSE_STRIP_REGEX: RegExp = /[^\d]/g;
 
 function verifierDigit(digits: string): number {
   const numbers: Array<number> = digits.split('').map(number => {
@@ -30,13 +31,9 @@ function verifierDigit(digits: string): number {
   return mod < 2 ? 0 : 11 - mod;
 }
 
-function strip(number: string, strict?: boolean): string {
-  const regex: RegExp = strict ? STRICT_STRIP_REGEX : LOOSE_STRIP_REGEX;
-  return (number || '').replace(regex, '');
-}
-
 export default function isCpf(number: string, strict?: boolean): boolean {
-  const stripped: string = strip(number, strict);
+  const regex: RegExp | undefined = strict ? STRICT_STRIP_REGEX : undefined;
+  const stripped: string = stripNumbers(number, regex);
 
   if (!stripped || stripped.length !== 11 || BLACKLIST.includes(stripped)) {
     return false;

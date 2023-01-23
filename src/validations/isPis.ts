@@ -1,3 +1,5 @@
+import { stripNumbers } from "../";
+
 const BLACKLIST: Array<string> = [
   '00000000000',
   '11111111111',
@@ -14,7 +16,6 @@ const BLACKLIST: Array<string> = [
 const WEIGHTS_PER_DIGIT: Array<number> = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
 const STRICT_STRIP_REGEX: RegExp = /[-\\/.]/g;
-const LOOSE_STRIP_REGEX: RegExp = /[^\d]/g;
 
 function verifierDigit(digits: string): number {
   const sum = digits.split('').reduce((buffer: any, number: string, index: number) => {
@@ -34,19 +35,15 @@ function verifierDigit(digits: string): number {
   return verified;
 }
 
-function strip(number: string, strict?: boolean): string {
-  const regex: RegExp = strict ? STRICT_STRIP_REGEX : LOOSE_STRIP_REGEX;
-  return (number || '').replace(regex, '');
-}
-
 /**
- * checks if the number is a NIT (NIS, PIS ou PASEP)
+ * checks if the number is a PIS (NIS, NIT ou PASEP)
  * @param number sequence of numbers to be validated
  * @param strict parameter for strict validations
  * @returns boolean
  */
 export default function isPis(number: string, strict?: boolean): boolean {
-  const stripped: string = strip(number, strict);
+  const regex: RegExp | undefined = strict ? STRICT_STRIP_REGEX : undefined;
+  const stripped: string = stripNumbers(number, regex);
   
   const digit: number = parseInt(stripped.slice(-1), 10);
 
