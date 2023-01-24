@@ -1,5 +1,5 @@
 export default function maskString(value: string, pattern: string): string {
-  if (!value || !pattern) return '--';
+  if (!value || !pattern) return '';
 
   let i = 0;
 
