@@ -1,21 +1,13 @@
 {
   "name": "@useblu/utils",
-  "version": "1.0.6",
+  "version": "1.0.9",
   "private": false,
   "license": "MIT",
-  "main": "dist/index",
-  "typings": "dist/index",
-  "types": "dist/index.d.ts",
-  "exports": {
-		"default": "./dist/index.cjs",
-		"require": "./dist/index.cjs",
-		"import": "./dist/index.mjs",
-		"node": "./dist/index.cjs"
-	}, 
-  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts --transpileOnly",
+    "build": "tsc --declaration",
+    "dev": "ts-node src/index.ts",
     "lint": "eslint src/**/*.ts* --fix",
     "test": "jest",
     "coverage": "jest --coverage"
@@ -56,7 +48,7 @@
   },
   "homepage": "https://github.com/Pagnet/blu-utils#readme",
   "files": [
-    "src/**/*"
+    "lib/**/*"
   ],
   "publishConfig": {
     "access": "public"
