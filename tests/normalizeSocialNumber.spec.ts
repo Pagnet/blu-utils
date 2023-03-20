@@ -14,3 +14,4 @@ describe('normalizeSocialNumber', () => {
     expect(normalizeSocialNumber(1220000000)).toBe('1.2B');
   });
 });
+
