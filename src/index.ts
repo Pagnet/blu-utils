@@ -6,6 +6,7 @@ export { default as normalizeMoney } from './normalizers/normalizeMoney';
 export { default as normalizeCpfOrCnpj } from './normalizers/normalizeCpfOrCnpj';
 export { default as normalizePhone } from './normalizers/normalizePhone';
 export { default as normalizePis } from './normalizers/normalizePis';
+export { default as normalizeDate } from './normalizers/normalizeDate';
 
 // utils
 export { default as maskString } from './utils/maskString';
