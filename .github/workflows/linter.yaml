@@ -24,3 +24,5 @@ jobs:
 
       - name: Run eslint with reviewdog
         uses: reviewdog/action-eslint@v1.16.1
+        with:
+          eslint_flags: . --ext .js,.jsx,.ts,.tsx
