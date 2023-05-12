@@ -15,18 +15,9 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "16"
 
       - run: yarn install
 
       - name: Run eslint with reviewdog
         uses: reviewdog/action-eslint@v1.16.1
-
-      - name: Report status
-        uses: 8398a7/action-slack@v3
-        with:
-          status: ${{ job.status }}
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took,pullRequest # selectable (default: repo,message)
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_ACTIONS_WEBHOOK }}
-        if: failure()
