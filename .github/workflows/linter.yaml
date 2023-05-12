@@ -1,4 +1,4 @@
-name: 🐶 Review Dog - ESLint
+name: Linters
 
 on:
   pull_request:
