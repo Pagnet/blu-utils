@@ -54,6 +54,11 @@ jobs:
       - name: Build all
         run: yarn build
 
+      - name: Bump version
+        run: |
+          npm version patch
+          git push --follow-tags
+
       - name: Creates a STABLE release if necessary
         if: github.ref == 'refs/heads/master'
         run: npm publish --access public
