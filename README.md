@@ -38,7 +38,7 @@ console.log(normalizeCpfOrCnpj("93231097037")); // 932.310.970-37
 
 ```
 ## Contributing
-Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of this project! :coração_azul: Read below to learn how you can take part of it.
+Whether you're helping us fix bugs, improve the docs, or spread the word, we'd love to have you as part of this project! Read below to learn how you can take part of it.
 ### Code of Conduct
 We adopted a Code of Conduct that we expect project participants to adhere to. Please read [the full text](.github/CODE_OF_CONDUCT.md) so that you can understand what actions will and will not be tolerated.
 ### Contributing Guide
