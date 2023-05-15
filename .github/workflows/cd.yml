@@ -51,7 +51,6 @@ jobs:
       - name: Creates release if necessary
         if: github.ref == 'refs/heads/master'
         run: |
-          jq --help
           OLD_PACKAGE_VERSION=$(echo $(git show HEAD~1:package.json) | jq '.version')
           NEW_PACKAGE_VERSION=$(node -pe 'require("./package.json").version')
 

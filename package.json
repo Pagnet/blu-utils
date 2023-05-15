@@ -1,6 +1,6 @@
 {
   "name": "@useblu/utils",
-  "version": "1.0.22",
+  "version": "1.0.41",
   "private": false,
   "license": "MIT",
   "main": "lib/index.js",
