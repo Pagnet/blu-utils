@@ -1,10 +1,9 @@
 name: CD
 
 on:
-  pull_request:
+  push:
     branches:
       - master
-    types: [closed]
 
 env:
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -21,11 +20,6 @@ jobs:
           token: ${{ secrets.GH_OAUTH_TOKEN }}
           # We need to fetch all tags and branches
           fetch-depth: 0
-
-      - name: Set git identity
-        run: |
-          git config --global user.name "Blu Release Bot"
-          git config --global user.email "devs@useblu.com.br"
 
       - name: Use Node.js environment
         uses: actions/setup-node@v2
@@ -54,11 +48,15 @@ jobs:
       - name: Build all
         run: yarn build
 
-      - name: Bump version
-        run: |
-          npm version patch
-          git push --follow-tags
-
-      - name: Creates a STABLE release if necessary
+      - name: Creates release if necessary
         if: github.ref == 'refs/heads/master'
-        run: npm publish --access public
+        run: |
+          jq --help
+          OLD_PACKAGE_VERSION=$(echo $(git show HEAD~1:package.json) | jq '.version')
+          NEW_PACKAGE_VERSION=$(node -pe 'require("./package.json").version')
+
+          if [ "$NEW_PACKAGE_VERSION" != "$OLD_PACKAGE_VERSION" ]; then
+            printf "Changed version [%s]\n" "$NEW_PACKAGE_VERSION"
+
+            npm publish --access public
+          fi
