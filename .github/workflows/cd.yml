@@ -5,11 +5,6 @@ on:
     branches:
       - master
 
-env:
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  GH_TOKEN: ${{ secrets.GH_OAUTH_TOKEN }}
-  CI: true
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -50,6 +45,8 @@ jobs:
 
       - name: Creates release if necessary
         if: github.ref == 'refs/heads/master'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           OLD_PACKAGE_VERSION=$(echo $(git show HEAD~1:package.json) | jq '.version')
           NEW_PACKAGE_VERSION=$(node -pe 'require("./package.json").version')
