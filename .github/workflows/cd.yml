@@ -22,9 +22,6 @@ jobs:
           node-version: '14.x'
           registry-url: https://registry.npmjs.org/
 
-      - name: Authenticate with Registry
-        run: npm whoami
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -48,6 +45,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
+          npm whoami
+
           OLD_PACKAGE_VERSION=$(echo $(git show HEAD~1:package.json) | jq '.version')
           NEW_PACKAGE_VERSION=$(node -pe 'require("./package.json").version')
 
