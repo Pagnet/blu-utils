@@ -45,5 +45,7 @@ We adopted a Code of Conduct that we expect project participants to adhere to. P
 Read our [contributing guide](.github/CONTRIBUTING.md) to learn about our development process, how to propose bugfixes and improvements, and how to build and test your changes.
 ### Good First Issues
 To help you get your feet wet and get you familiar with our contribution process, we have a list of [good first issues](https://github.com/Pagnet/blu-utils/labels/good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started.
+### Release to NPM
+To release a new version on NPM registry, just bump version on *`package.json`* and merge it into master to automatically publish a new version.
 ## License
 All packages are licensed under the terms of the [GPL-3.0 License](LICENSE).
