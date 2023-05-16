@@ -48,7 +48,7 @@ jobs:
           npm whoami
 
           OLD_PACKAGE_VERSION=$(echo $(git show HEAD~1:package.json) | jq '.version')
-          NEW_PACKAGE_VERSION=$(node -pe 'require("./package.json").version')
+          NEW_PACKAGE_VERSION=$(echo $(git show HEAD:package.json) | jq '.version')
 
           if [ "$NEW_PACKAGE_VERSION" != "$OLD_PACKAGE_VERSION" ]; then
             printf "Changed version [%s]\n" "$NEW_PACKAGE_VERSION"
