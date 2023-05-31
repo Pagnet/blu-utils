@@ -15,7 +15,7 @@ const BLACKLIST: Array<string> = [
 
 const WEIGHTS_PER_DIGIT: Array<number> = [3, 2, 9, 8, 7, 6, 5, 4, 3, 2];
 
-const STRICT_STRIP_REGEX = /[-\\/.]/g;
+const STRICT_STRIP_REGEX: RegExp = /[-\\/.]/g;
 
 function verifierDigit(digits: string): number {
   const sum = digits.split('').reduce((buffer: any, number: string, index: number) => {

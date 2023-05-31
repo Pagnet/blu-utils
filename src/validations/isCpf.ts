@@ -14,7 +14,7 @@ const BLACKLIST: Array<string> = [
   '12345678909',
 ];
 
-const STRICT_STRIP_REGEX = /[.-]/g;
+const STRICT_STRIP_REGEX: RegExp = /[.-]/g;
 
 function verifierDigit(digits: string): number {
   const numbers: Array<number> = digits.split('').map((number) => parseInt(number, 10));

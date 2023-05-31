@@ -13,10 +13,10 @@ const BLACKLIST: Array<string> = [
   '99999999999999',
 ];
 
-const STRICT_STRIP_REGEX = /[-\\/.]/g;
+const STRICT_STRIP_REGEX: RegExp = /[-\\/.]/g;
 
 export function verifierDigit(digits: string): number {
-  let index = 2;
+  let index: number = 2;
 
   const reverse: any = digits.split('').reduce((buffer: any, number: any) => [parseInt(number, 10)].concat(buffer), []);
 
