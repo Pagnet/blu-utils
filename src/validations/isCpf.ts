@@ -1,4 +1,4 @@
-import { stripNumbers } from "../";
+import stripNumbers from '../utils/stripNumbers';
 
 const BLACKLIST: Array<string> = [
   '00000000000',
@@ -14,19 +14,16 @@ const BLACKLIST: Array<string> = [
   '12345678909',
 ];
 
-const STRICT_STRIP_REGEX: RegExp = /[.-]/g;
+const STRICT_STRIP_REGEX = /[.-]/g;
 
 function verifierDigit(digits: string): number {
-  const numbers: Array<number> = digits.split('').map(number => {
-    return parseInt(number, 10);
-  });
+  const numbers: Array<number> = digits.split('').map((number) => parseInt(number, 10));
 
   const modulus: number = numbers.length + 1;
   const multiplied: Array<number> = numbers.map(
     (number, index) => number * (modulus - index),
   );
-  const mod: number =
-    multiplied.reduce((buffer, number) => buffer + number) % 11;
+  const mod: number = multiplied.reduce((buffer, number) => buffer + number) % 11;
 
   return mod < 2 ? 0 : 11 - mod;
 }
@@ -45,4 +42,3 @@ export default function isCpf(number: string, strict?: boolean): boolean {
 
   return numbers.substr(-2) === stripped.substr(-2);
 }
-

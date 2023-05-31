@@ -1,4 +1,4 @@
-import { stripNumbers } from "../";
+import stripNumbers from '../utils/stripNumbers';
 
 const BLACKLIST: Array<string> = [
   '00000000000000',
@@ -13,15 +13,12 @@ const BLACKLIST: Array<string> = [
   '99999999999999',
 ];
 
-const STRICT_STRIP_REGEX: RegExp = /[-\\/.]/g;
-const LOOSE_STRIP_REGEX: RegExp = /[^\d]/g;
+const STRICT_STRIP_REGEX = /[-\\/.]/g;
 
 export function verifierDigit(digits: string): number {
-  let index: number = 2;
+  let index = 2;
 
-  const reverse: any = digits.split('').reduce((buffer: any, number: any) => {
-    return [parseInt(number, 10)].concat(buffer);
-  }, []);
+  const reverse: any = digits.split('').reduce((buffer: any, number: any) => [parseInt(number, 10)].concat(buffer), []);
 
   const sum: number = reverse.reduce((buffer: any, number: any) => {
     buffer += number * index;
@@ -48,4 +45,3 @@ export default function isCnpj(number: string, strict?: boolean): boolean {
 
   return numbers.substr(-2) === stripped.substr(-2);
 }
-
