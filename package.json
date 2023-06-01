@@ -10,7 +10,7 @@
     "dev": "ts-node src/index.ts",
     "lint": "eslint src/**/*.ts* --fix",
     "test": "TZ=UTC+3 jest",
-    "coverage": "jest --coverage"
+    "coverage": "TZ=UTC+3 jest --coverage"
   },
   "dependencies": {
     "react": "^18.2.0"
