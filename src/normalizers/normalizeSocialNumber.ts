@@ -1,4 +1,4 @@
-export default function normalizeSocialNumber(value: number) {
+export default function normalizeSocialNumber(value: number): string {
   const formated = Intl.NumberFormat('en-US', {
     notation: 'compact',
     maximumFractionDigits: 1,

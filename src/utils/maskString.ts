@@ -4,6 +4,7 @@ export default function maskString(value: string, pattern: string): string {
   let i = 0;
 
   return pattern
-    .replace(/#/g, _ => value.toString()[i++])
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    .replace(/#/g, (_) => value.toString()[i++])
     .replace(/undefined/g, '');
 }
