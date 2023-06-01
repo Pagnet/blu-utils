@@ -37,5 +37,3 @@ export default function normalizeDate(date: string, type: DateTypes = 'numeric')
 
   return formatter;
 }
-
-console.log(normalizeDate('2023-05-31'))
