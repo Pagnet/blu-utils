@@ -7,4 +7,3 @@ export default function normalizeCpfOrCnpj(value: string): string {
 
   return maskString(value, '##.###.###/####-##');
 }
-

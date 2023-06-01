@@ -1,4 +1,4 @@
-import { stripNumbers } from "../";
+import stripNumbers from '../utils/stripNumbers';
 
 const BLACKLIST: Array<string> = [
   '00000000000',
@@ -28,23 +28,17 @@ function verifierDigit(digits: string): number {
 
   let verified: number = 11 - mod;
 
-  if ([10, 11].some(exclude => verified === exclude)) {
+  if ([10, 11].some((exclude) => verified === exclude)) {
     verified = 0;
   }
 
   return verified;
 }
 
-/**
- * checks if the number is a PIS (NIS, NIT ou PASEP)
- * @param number sequence of numbers to be validated
- * @param strict parameter for strict validations
- * @returns boolean
- */
 export default function isPis(number: string, strict?: boolean): boolean {
   const regex: RegExp | undefined = strict ? STRICT_STRIP_REGEX : undefined;
   const stripped: string = stripNumbers(number, regex);
-  
+
   const digit: number = parseInt(stripped.slice(-1), 10);
 
   if (!stripped || stripped.length > 11 || BLACKLIST.includes(stripped)) return false;

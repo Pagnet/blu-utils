@@ -26,6 +26,7 @@ export default function normalizeDate(date: string, type: DateTypes = 'numeric')
     },
   };
 
+
   const dateFormatted = (): Date => {
     const d = new Date(date);
     const tzOffset = d.getTimezoneOffset();
