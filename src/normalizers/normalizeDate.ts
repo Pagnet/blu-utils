@@ -1,36 +1,39 @@
-type Types = 'bigger' | 'long' | 'numeric';
+type DateTypes = 'bigger' | 'long' | 'numeric';
 
-export default function normalizeDate(date: string, type: Types = 'numeric') {
-  const bigger = () => new Date(`${date}Z`).toLocaleString('pt-BR', {
-    weekday: 'long',
-    month: 'long',
-    year: 'numeric',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    second: 'numeric',
-    timeZone: 'America/Sao_Paulo',
-    timeZoneName: 'long',
-  });
-
-  const long = () => new Date(date).toLocaleDateString('pt-BR', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
-
-  const numeric = () => new Date(date).toLocaleDateString('pt-BR', {
-    year: 'numeric',
-    month: 'numeric',
-    day: 'numeric',
-  });
-
-  const func: any = {
-    bigger,
-    long,
-    numeric,
+export default function normalizeDate(date: string, type: DateTypes = 'numeric'): string {
+  const options: Record<DateTypes, object> = {
+    bigger: {
+      weekday: 'long',
+      month: 'long',
+      year: 'numeric',
+      day: 'numeric',
+      hour: 'numeric',
+      minute: 'numeric',
+      second: 'numeric',
+      timeZone: 'America/Sao_Paulo',
+      timeZoneName: 'long',
+    },
+    long: {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    },
+    numeric: {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric',
+    },
   };
 
-  return func[type]();
+  const dateFormatted = (): Date => {
+    const d = new Date(date);
+    const tzOffset = d.getTimezoneOffset();
+    d.setTime(d.getTime() + tzOffset * 60 * 1000);
+    return d;
+  };
+
+  const formatter = dateFormatted().toLocaleDateString('pt-BR', options[type]);
+
+  return formatter;
 }
