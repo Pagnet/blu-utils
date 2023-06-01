@@ -1,5 +1,5 @@
 import 'jest';
-import { normalizeDate } from '../src/';
+import { normalizeDate } from '../src';
 
 describe('normalizeDate', () => {
   test('should return the expected formatted date for type "bigger"', () => {
@@ -43,4 +43,3 @@ describe('normalizeDate', () => {
     expect(resultLong).not.toBe(resultBigger);
   });
 });
-
