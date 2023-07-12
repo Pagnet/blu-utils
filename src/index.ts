@@ -24,4 +24,3 @@ export { default as isPis } from './validations/isPis';
 export { default as breakpointFrom } from './styles/breakpointFrom';
 export { default as breakpointTo } from './styles/breakpointTo';
 export { default as breakpointBetween } from './styles/breakpointBetween';
-
