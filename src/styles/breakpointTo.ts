@@ -5,4 +5,3 @@ export default function breakpointTo<T extends string>(point: T): string {
     Breakpoints[point as keyof typeof Breakpoints]
   })`;
 }
-

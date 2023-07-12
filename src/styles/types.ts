@@ -7,4 +7,3 @@ export enum Breakpoints {
   bpXLarge = '1200px',
   bpXXLarge = '1400px',
 }
-

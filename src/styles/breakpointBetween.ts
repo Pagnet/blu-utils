@@ -8,4 +8,3 @@ export default function breakpointBetween<T extends string>(
     Breakpoints[from as keyof typeof Breakpoints]
   }) and (max-width: ${Breakpoints[to as keyof typeof Breakpoints]})`;
 }
-
