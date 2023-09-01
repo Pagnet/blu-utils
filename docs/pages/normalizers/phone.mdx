@@ -1,0 +1,54 @@
+## `normalizePhone(phoneNumber: string, withDDI?: boolean): string`
+
+This utility function is designed to normalize and format phone numbers, particularly in the context of a Brazilian phone number. It can optionally include the Direct Dialing International (DDI) code.
+
+### Parameters
+
+- `phoneNumber` (string): The input phone number to be normalized.
+- `withDDI` (boolean, optional): A flag indicating whether to include the DDI code. If `true`, the DDI code will be included; if `false` or omitted, the DDI code will be excluded.
+
+### Return Value
+
+- Returns a formatted string representing the normalized phone number.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { normalizePhone } from '../src';
+
+function PhoneDisplay({ number, withDDI }) {
+  const formattedNumber = normalizePhone(number, withDDI);
+
+  return <span>{formattedNumber}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Phone Numbers</h1>
+      <PhoneDisplay number="85974147852" /> {/* Renders: (85) 97414-7852 */}
+      <PhoneDisplay number="+5585974147852" withDDI /> {/* Renders: +55 (85) 97414-7852 */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { normalizePhone } from '../src';
+
+const phoneNumber1 = normalizePhone('85974147852');
+console.log(phoneNumber1); // Output: '(85) 97414-7852'
+
+const phoneNumber2 = normalizePhone('+5585974147852', true);
+console.log(phoneNumber2); // Output: '+55 (85) 97414-7852'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

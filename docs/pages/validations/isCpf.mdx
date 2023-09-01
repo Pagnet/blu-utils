@@ -1,0 +1,53 @@
+## `isCpf(cpf: string): boolean`
+
+This utility function is designed to validate Brazilian CPF (Cadastro de Pessoas Físicas) numbers for their correctness according to the CPF algorithm. It checks if a given CPF number is valid or not.
+
+### Parameters
+
+- `cpf` (string): The CPF number to be validated.
+
+### Return Value
+
+- Returns `true` if the provided CPF is valid, and `false` if it is invalid.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { isCpf } from '../src';
+
+function CpfValidationResult({ cpf }) {
+  const isValid = isCpf(cpf);
+
+  return <span>{isValid ? 'Valid CPF' : 'Invalid CPF'}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>CPF Validation</h1>
+      <CpfValidationResult cpf="10132002256" /> {/* Renders: 'Valid CPF' */}
+      <CpfValidationResult cpf="10132002252" /> {/* Renders: 'Invalid CPF' */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { isCpf } from '../src';
+
+const isValidCpf1 = isCpf('10132002256');
+console.log(isValidCpf1); // Output: true
+
+const isValidCpf2 = isCpf('10132002252');
+console.log(isValidCpf2); // Output: false
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

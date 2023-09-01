@@ -1,0 +1,77 @@
+Certainly! Here's the documentation for the breakpoint-related functions with examples using Styled Components:
+
+---
+
+## `breakpointFrom(breakpoint: string): string`
+
+This utility function returns a media query string to target a specific breakpoint and larger screen sizes.
+
+### Parameters
+
+- `breakpoint` (string): The breakpoint identifier to start targeting from. Possible values are 'bpXSmall', 'bpSmall', 'bpMedium', 'bpLarge', 'bpXLarge', and 'bpXXLarge'.
+
+### Return Value
+
+- Returns a media query string targeting the specified breakpoint and larger screen sizes.
+
+## `breakpointTo(breakpoint: string): string`
+
+This utility function returns a media query string to target a specific breakpoint and smaller screen sizes.
+
+### Parameters
+
+- `breakpoint` (string): The breakpoint identifier to target up to. Possible values are 'bpXSmall', 'bpSmall', 'bpMedium', 'bpLarge', 'bpXLarge', and 'bpXXLarge'.
+
+### Return Value
+
+- Returns a media query string targeting the specified breakpoint and smaller screen sizes.
+
+## `breakpointBetween(fromBreakpoint: string, toBreakpoint: string): string`
+
+This utility function returns a media query string to target a range of screen sizes between two breakpoints.
+
+### Parameters
+
+- `fromBreakpoint` (string): The starting breakpoint identifier. Possible values are 'bpXSmall', 'bpSmall', 'bpMedium', 'bpLarge', 'bpXLarge', and 'bpXXLarge'.
+- `toBreakpoint` (string): The ending breakpoint identifier. Possible values are 'bpXSmall', 'bpSmall', 'bpMedium', 'bpLarge', 'bpXLarge', and 'bpXXLarge'.
+
+### Return Value
+
+- Returns a media query string targeting the range of screen sizes between the specified breakpoints.
+
+### Examples with Styled Components
+
+```jsx
+import styled from 'styled-components';
+import { breakpointFrom, breakpointTo, breakpointBetween } from '../src';
+
+const Container = styled.div`
+  padding: 20px;
+  ${breakpointFrom('bpSmall')} {
+    background-color: lightblue;
+  }
+`;
+
+const Text = styled.p`
+  font-size: 16px;
+  ${breakpointTo('bpMedium')} {
+    font-size: 14px;
+  }
+  ${breakpointBetween('bpMedium', 'bpLarge')} {
+    font-size: 12px;
+  }
+`;
+
+// Usage
+function App() {
+  return (
+    <Container>
+      <Text>This text has different styles based on breakpoints.</Text>
+    </Container>
+  );
+}
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase as needed. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

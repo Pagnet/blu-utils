@@ -1,0 +1,42 @@
+## `normalizeMoney(value: number): string`
+
+This utility function is designed to be used within a React application to format monetary values and display them in Brazilian currency format (Real - BRL).
+
+### Parameters
+
+- `value` (number): The numeric value of the monetary amount to be normalized.
+
+### Return Value
+
+- Returns a formatted string representing the monetary amount in Brazilian currency.
+
+### Examples
+
+```jsx
+import React from 'react';
+import { normalizeMoney } from '@useblu/utils';
+
+function MoneyDisplay({ amount }) {
+  const formattedAmount = normalizeMoney(amount);
+
+  return <span>{formattedAmount}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Monetary Amounts</h1>
+      <MoneyDisplay amount={10} /> {/* Renders: R$ 10,00 */}
+      <MoneyDisplay amount={3000} /> {/* Renders: R$ 3.000,00 */}
+      <MoneyDisplay amount={1000000} /> {/* Renders: R$ 1.000.000,00 */}
+    </div>
+  );
+}
+```
+
+In this example, the `normalizeMoney` function is used to format monetary values within a React application. The `MoneyDisplay` component takes an `amount` prop, formats it using `normalizeMoney`, and renders the formatted value.
+
+---
+
+Feel free to integrate this documentation into your React application's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

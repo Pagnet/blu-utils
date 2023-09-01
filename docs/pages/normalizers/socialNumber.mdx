@@ -1,0 +1,65 @@
+## `normalizeSocialNumber(number: number): string`
+
+This utility function is designed to normalize and format large numbers for social media displays. It shortens the number to a more readable format by using abbreviations like K (thousands), M (millions), and B (billions).
+
+### Parameters
+
+- `number` (number): The numeric value to be normalized.
+
+### Return Value
+
+- Returns a formatted string representing the normalized number in a social media-friendly format.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { normalizeSocialNumber } from '../src';
+
+function SocialNumberDisplay({ value }) {
+  const formattedNumber = normalizeSocialNumber(value);
+
+  return <span>{formattedNumber}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Social Numbers</h1>
+      <SocialNumberDisplay value={120} /> {/* Renders: 120 */}
+      <SocialNumberDisplay value={1200} /> {/* Renders: 1.2K */}
+      <SocialNumberDisplay value={10000} /> {/* Renders: 10K */}
+      <SocialNumberDisplay value={100000} /> {/* Renders: 100K */}
+      <SocialNumberDisplay value={1000000} /> {/* Renders: 1M */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { normalizeSocialNumber } from '../src';
+
+const number1 = normalizeSocialNumber(120);
+console.log(number1); // Output: '120'
+
+const number2 = normalizeSocialNumber(1200);
+console.log(number2); // Output: '1.2K'
+
+const number3 = normalizeSocialNumber(10000);
+console.log(number3); // Output: '10K'
+
+const number4 = normalizeSocialNumber(100000);
+console.log(number4); // Output: '100K'
+
+const number5 = normalizeSocialNumber(1000000);
+console.log(number5); // Output: '1M'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

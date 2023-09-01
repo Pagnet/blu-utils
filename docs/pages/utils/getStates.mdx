@@ -1,0 +1,59 @@
+## `getStates(): State[]`
+
+This utility function is designed to return a list of Brazilian states with their corresponding data, such as state abbreviation (UF), name, and code.
+
+### Return Value
+
+- Returns an array of state objects, each containing the following properties:
+  - `id_uf` (number): The unique identifier for the state.
+  - `uf` (string): The state's abbreviation (UF).
+  - `name` (string): The full name of the state.
+  - `code` (number): The state's code.
+
+### Example
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { getStates } from '../src';
+
+function StatesList() {
+  const states = getStates();
+
+  return (
+    <div>
+      <h1>Brazilian States</h1>
+      <ul>
+        {states.map((state) => (
+          <li key={state.id_uf}>
+            {state.uf} - {state.name} (Code: {state.code})
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <StatesList />
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { getStates } from '../src';
+
+const states = getStates();
+console.log(states); // Output: Array of state objects
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

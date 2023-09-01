@@ -1,0 +1,53 @@
+## `normalizeCpfOrCnpj(identifier: string): string`
+
+This utility function is designed to normalize and format Brazilian CPF (Cadastro de Pessoas Físicas) and CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers. It formats the numbers with appropriate separators and masks.
+
+### Parameters
+
+- `identifier` (string): The CPF or CNPJ number to be normalized.
+
+### Return Value
+
+- Returns a formatted string representing the normalized CPF or CNPJ number.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { normalizeCpfOrCnpj } from '../src';
+
+function IdentifierDisplay({ value }) {
+  const formattedIdentifier = normalizeCpfOrCnpj(value);
+
+  return <span>{formattedIdentifier}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>CPF and CNPJ Numbers</h1>
+      <IdentifierDisplay value="82400705070" /> {/* Renders: 824.007.050-70 */}
+      <IdentifierDisplay value="92577765000107" /> {/* Renders: 92.577.765/0001-07 */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { normalizeCpfOrCnpj } from '../src';
+
+const identifier1 = normalizeCpfOrCnpj('82400705070');
+console.log(identifier1); // Output: '824.007.050-70'
+
+const identifier2 = normalizeCpfOrCnpj('92577765000107');
+console.log(identifier2); // Output: '92.577.765/0001-07'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

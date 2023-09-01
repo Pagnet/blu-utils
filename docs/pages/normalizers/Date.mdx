@@ -1,0 +1,61 @@
+## `normalizeDate(dateString: string, type?: string): string`
+
+This utility function is designed to normalize and format dates according to different formats and types. It supports three formatting types: "bigger", "long", and "numeric".
+
+### Parameters
+
+- `dateString` (string): The input date string to be normalized.
+- `type` (string, optional): The formatting type for the date. Possible values are "bigger", "long", and "numeric". If not provided, the default type is "numeric".
+
+### Return Value
+
+- Returns a formatted string representing the normalized date based on the specified type.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { normalizeDate } from '../src';
+
+function FormattedDateDisplay({ date, type = 'numeric' }) {
+  const formattedDate = normalizeDate(date, type);
+
+  return <span>{formattedDate}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Formatted Dates</h1>
+      <FormattedDateDisplay date="2023-12-12 23:39:25.756Z" type="bigger" />
+      {/* Renders: 'terça-feira, 12 de dezembro de 2023 23:39:25 Horário Padrão de Brasília' */}
+      <FormattedDateDisplay date="2023-01-01 23:39:25.756Z" type="long" />
+      {/* Renders: 'domingo, 1 de janeiro de 2023' */}
+      <FormattedDateDisplay date="2023-01-01 23:39:25.756Z" type="numeric" />
+      {/* Renders: '01/01/2023' */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { normalizeDate } from '../src';
+
+const formattedDate1 = normalizeDate('2023-12-12 23:39:25.756Z', 'bigger');
+console.log(formattedDate1); // Output: 'terça-feira, 12 de dezembro de 2023 23:39:25 Horário Padrão de Brasília'
+
+const formattedDate2 = normalizeDate('2023-01-01 23:39:25.756Z', 'long');
+console.log(formattedDate2); // Output: 'domingo, 1 de janeiro de 2023'
+
+const formattedDate3 = normalizeDate('2023-01-01 23:39:25.756Z', 'numeric');
+console.log(formattedDate3); // Output: '01/01/2023'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

@@ -1,0 +1,57 @@
+## `normalizePis(pis: string): string`
+
+This utility function is designed to normalize and format PIS (Programa de Integração Social) numbers, which are used in Brazil for social security identification. It formats the PIS number with appropriate separators.
+
+### Parameters
+
+- `pis` (string): The PIS number to be normalized.
+
+### Return Value
+
+- Returns a formatted string representing the normalized PIS number.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { normalizePis } from '../src';
+
+function PisDisplay({ pisNumber }) {
+  const formattedPis = normalizePis(pisNumber);
+
+  return <span>{formattedPis}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>PIS Numbers</h1>
+      <PisDisplay pisNumber="08811848944" /> {/* Renders: 088.11848.94-4 */}
+      <PisDisplay pisNumber="82311848944" /> {/* Renders: 823.11848.94-4 */}
+      <PisDisplay pisNumber="12345678994" /> {/* Renders: 123.45678.99-4 */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { normalizePis } from '../src';
+
+const pisNumber1 = normalizePis('08811848944');
+console.log(pisNumber1); // Output: '088.11848.94-4'
+
+const pisNumber2 = normalizePis('82311848944');
+console.log(pisNumber2); // Output: '823.11848.94-4'
+
+const pisNumber3 = normalizePis('12345678994');
+console.log(pisNumber3); // Output: '123.45678.99-4'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

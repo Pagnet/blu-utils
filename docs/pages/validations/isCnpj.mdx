@@ -1,0 +1,53 @@
+## `isCnpj(cnpj: string): boolean`
+
+This utility function is designed to validate Brazilian CNPJ (Cadastro Nacional da Pessoa Jurídica) numbers for their correctness according to the CNPJ algorithm. It checks if a given CNPJ number is valid or not.
+
+### Parameters
+
+- `cnpj` (string): The CNPJ number to be validated.
+
+### Return Value
+
+- Returns `true` if the provided CNPJ is valid, and `false` if it is invalid.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { isCnpj } from '../src';
+
+function CnpjValidationResult({ cnpj }) {
+  const isValid = isCnpj(cnpj);
+
+  return <span>{isValid ? 'Valid CNPJ' : 'Invalid CNPJ'}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>CNPJ Validation</h1>
+      <CnpjValidationResult cnpj="37917940000150" /> {/* Renders: 'Valid CNPJ' */}
+      <CnpjValidationResult cnpj="10132002256" /> {/* Renders: 'Invalid CNPJ' */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { isCnpj } from '../src';
+
+const isValidCnpj1 = isCnpj('37917940000150');
+console.log(isValidCnpj1); // Output: true
+
+const isValidCnpj2 = isCnpj('10132002256');
+console.log(isValidCnpj2); // Output: false
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

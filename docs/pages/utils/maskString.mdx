@@ -1,0 +1,54 @@
+## `maskString(input: string, mask: string): string`
+
+This utility function is designed to apply a mask to a given input string according to a specified mask pattern.
+
+### Parameters
+
+- `input` (string): The input string to be masked.
+- `mask` (string): The mask pattern that defines how the input should be formatted. The mask pattern can include placeholders for characters, where `#` represents a digit and any other character represents a literal character.
+
+### Return Value
+
+- Returns a formatted string with the input masked according to the specified mask pattern.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { maskString } from '../src';
+
+function MaskedStringDisplay({ input, mask }) {
+  const maskedValue = maskString(input, mask);
+
+  return <span>{maskedValue}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>Masked Strings</h1>
+      <MaskedStringDisplay input="123456" mask="###-###" /> {/* Renders: '123-456' */}
+      <MaskedStringDisplay input="12345678" mask="###-###-##" /> {/* Renders: '123-456-78' */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { maskString } from '../src';
+
+const maskedValue1 = maskString('123456', '###-###');
+console.log(maskedValue1); // Output: '123-456'
+
+const maskedValue2 = maskString('12345678', '###-###-##');
+console.log(maskedValue2); // Output: '123-456-78'
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.

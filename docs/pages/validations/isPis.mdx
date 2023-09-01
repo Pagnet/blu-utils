@@ -1,0 +1,53 @@
+## `isPis(pis: string): boolean`
+
+This utility function is designed to validate Brazilian PIS (Programa de Integração Social) numbers for their correctness according to the PIS algorithm. It checks if a given PIS number is valid or not.
+
+### Parameters
+
+- `pis` (string): The PIS number to be validated.
+
+### Return Value
+
+- Returns `true` if the provided PIS is valid, and `false` if it is invalid.
+
+### Examples
+
+#### React Example
+
+```jsx
+import React from 'react';
+import { isPis } from '../src';
+
+function PisValidationResult({ pis }) {
+  const isValid = isPis(pis);
+
+  return <span>{isValid ? 'Valid PIS' : 'Invalid PIS'}</span>;
+}
+
+// Usage
+function App() {
+  return (
+    <div>
+      <h1>PIS Validation</h1>
+      <PisValidationResult pis="12345678994" /> {/* Renders: 'Valid PIS' */}
+      <PisValidationResult pis="10132002256" /> {/* Renders: 'Invalid PIS' */}
+    </div>
+  );
+}
+```
+
+#### Vanilla JavaScript Example
+
+```javascript
+import { isPis } from '../src';
+
+const isValidPis1 = isPis('12345678994');
+console.log(isValidPis1); // Output: true
+
+const isValidPis2 = isPis('10132002256');
+console.log(isValidPis2); // Output: false
+```
+
+---
+
+Feel free to integrate this documentation into your project's documentation or codebase. If you have any additional information to add or specific conventions to follow, you can adjust the documentation accordingly.
