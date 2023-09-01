@@ -2,7 +2,8 @@ import React from 'react';
 import { DocsThemeConfig } from 'nextra-theme-docs';
 
 const config: DocsThemeConfig = {
-  logo: <img src='https://portal.useblu.com.br/favicon.svg' width={30} alt='logo' />,
+  logo: 'Blu Utils',
+  // logo: <img src='https://portal.useblu.com.br/favicon.svg' width={30} alt='logo' />,
   project: {
     link: 'https://github.com/Pagnet/blu-utils',
   },
