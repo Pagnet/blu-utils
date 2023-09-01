@@ -3,7 +3,6 @@ import { DocsThemeConfig } from 'nextra-theme-docs';
 
 const config: DocsThemeConfig = {
   logo: 'Blu Utils',
-  // logo: <img src='https://portal.useblu.com.br/favicon.svg' width={30} alt='logo' />,
   project: {
     link: 'https://github.com/Pagnet/blu-utils',
   },
