@@ -27,4 +27,3 @@ describe('test isCPF', () => {
     expect(isCpf('02213015287')).toBe(false);
   });
 });
-
