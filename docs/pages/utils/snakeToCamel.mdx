@@ -1,0 +1,91 @@
+## `snakeToCamel(obj: object): object`
+
+This utility function is designed to transform keys of an object from snake_case to camelCase. It also handles nested objects and arrays of objects.
+
+### Parameters
+
+- `obj` (object): The object to be transformed.
+
+### Return Value
+
+- Returns a new object with keys converted from snake_case to camelCase. The values of the object are preserved.
+
+### Examples
+
+#### Basic Example
+
+```javascript
+import snakeToCamel from '../src';
+
+const inputObject = {
+  user_name: 'John',
+  age: 30,
+  is_active: true,
+};
+
+const transformedObject = snakeToCamel(inputObject);
+console.log(transformedObject);
+// Output:
+// {
+//   userName: 'John',
+//   age: 30,
+//   isActive: true,
+// }
+```
+
+#### Handling Nested Objects
+
+```javascript
+import snakeToCamel from '../src';
+
+const nestedInputObject = {
+  person_info: {
+    first_name: 'Alice',
+    last_name: 'Johnson',
+  },
+  is_active: true,
+};
+
+const transformedNestedObject = snakeToCamel(nestedInputObject);
+console.log(transformedNestedObject);
+// Output:
+// {
+//   personInfo: {
+//     firstName: 'Alice',
+//     lastName: 'Johnson',
+//   },
+//   isActive: true,
+// }
+```
+
+#### Handling Arrays of Objects
+
+```javascript
+import snakeToCamel from '../src';
+
+const arrayOfObjects = [
+  {
+    first_name: 'Alice',
+    last_name: 'Johnson',
+  },
+  {
+    first_name: 'Bob',
+    last_name: 'Smith',
+  },
+];
+
+const transformedArray = snakeToCamel(arrayOfObjects);
+console.log(transformedArray);
+// Output:
+// [
+//   {
+//     firstName: 'Alice',
+//     lastName: 'Johnson',
+//   },
+//   {
+//     firstName: 'Bob',
+//     lastName: 'Smith',
+//   },
+// ]
+
+``` 

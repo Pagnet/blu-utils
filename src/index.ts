@@ -13,6 +13,8 @@ export { default as normalizeSocialNumber } from './normalizers/normalizeSocialN
 export { default as maskString } from './utils/maskString';
 export { default as stripNumbers } from './utils/stripNumbers';
 export { default as getStates } from './utils/getStates';
+export { default as snakeToCamel } from './utils/snakeToCamel';
+export { default as camelToSnake } from './utils/camelToSnake';
 
 // validations
 export { default as isCpf } from './validations/isCpf';

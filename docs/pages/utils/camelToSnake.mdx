@@ -1,0 +1,34 @@
+## `camelToSnakeCase(camel: string | string[]): string | string[]`
+
+This utility function is designed to convert camelCase strings or arrays of camelCase strings to snake_case.
+
+### Parameters
+
+- `camel` (string | string[]): The input string or array of strings in camelCase to be converted to snake_case.
+
+### Return Value
+
+- Returns a new string or an array of strings with camelCase converted to snake_case.
+
+### Examples
+
+#### Basic Example
+
+```javascript
+import camelToSnakeCase from '../src';
+
+const camelString = 'myVariableName';
+const snakeString = camelToSnakeCase(camelString);
+console.log(snakeString);
+// Output: 'my_variable_name'
+
+
+// Handling an Array of CamelCase Strings
+
+const camelArray = ['firstName', 'lastName', 'emailAddress'];
+const snakeArray = camelToSnakeCase(camelArray);
+console.log(snakeArray);
+// Output: ['first_name', 'last_name', 'email_address']
+
+```
+
