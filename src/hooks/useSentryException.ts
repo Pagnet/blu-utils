@@ -1,4 +1,3 @@
-import { useCallback } from 'react';
 import * as Sentry from '@sentry/react';
 
 interface CaptureExceptionOptions {
@@ -6,22 +5,15 @@ interface CaptureExceptionOptions {
   clientId: string;
 }
 
-const useSentryException = (): ((
+const useSentryException = (
   error: Error,
-  options: CaptureExceptionOptions,
-) => void) => {
-  const captureException = useCallback(
-    (error: Error, { component, clientId }: CaptureExceptionOptions) => {
-      Sentry.withScope((scope: Sentry.Scope) => {
-        scope.setTag('component', component);
-        scope.setTag('clientId', clientId);
-        Sentry.captureException(error);
-      });
-    },
-    [],
-  );
-
-  return captureException;
+  { component, clientId }: CaptureExceptionOptions,
+): void => {
+  Sentry.withScope((scope: Sentry.Scope) => {
+    scope.setTag('component', component);
+    scope.setTag('clientId', clientId);
+    Sentry.captureException(error);
+  });
 };
 
 export default useSentryException;
