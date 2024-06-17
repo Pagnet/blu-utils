@@ -13,6 +13,7 @@
     "coverage": "TZ=UTC+3 jest --coverage"
   },
   "dependencies": {
+    "@sentry/react": "^8.9.2",
     "react": "^18.2.0"
   },
   "devDependencies": {
