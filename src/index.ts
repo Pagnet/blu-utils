@@ -1,5 +1,6 @@
 // hooks
 export { default as useOnScreen } from './hooks/useOnScreen';
+export { default as useSentryException } from './hooks/useSentryException';
 
 // normalizers
 export { default as normalizeMoney } from './normalizers/normalizeMoney';
