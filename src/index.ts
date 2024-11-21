@@ -2,6 +2,9 @@
 export { default as useOnScreen } from './hooks/useOnScreen';
 export { default as useSentryException } from './hooks/useSentryException';
 
+// formatters
+export { default as formatCnpj } from './formatters/formatCnpj';
+
 // normalizers
 export { default as normalizeMoney } from './normalizers/normalizeMoney';
 export { default as normalizeCpfOrCnpj } from './normalizers/normalizeCpfOrCnpj';

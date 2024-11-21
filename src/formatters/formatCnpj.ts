@@ -1,4 +1,4 @@
-const formatCNPJ = (value: string): string => {
+const formatCnpj = (value: string): string => {
   const formattedValue = value.replace(/\D/g, '').slice(0, 14);
 
   return formattedValue
@@ -8,4 +8,4 @@ const formatCNPJ = (value: string): string => {
     .replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, '$1.$2.$3/$4-$5');
 };
 
-export default formatCNPJ;
+export default formatCnpj;
