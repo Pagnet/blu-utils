@@ -1,6 +1,7 @@
 import 'jest';
 
 import { isCnpj } from '../src';
+import { cnpj } from 'cpf-cnpj-validator';
 
 describe('test isCnpj', () => {
   test('spec black list', () => {
@@ -15,15 +16,34 @@ describe('test isCnpj', () => {
     expect(isCnpj('88888888888888')).toBe(false);
     expect(isCnpj('99999999999999')).toBe(false);
   });
+
   test('spec list cnpj valid', () => {
     expect(isCnpj('37917940000150')).toBe(true);
     expect(isCnpj('84541997000187')).toBe(true);
     expect(isCnpj('90067886000183')).toBe(true);
   });
+
   test('spec list cnpj invalid', () => {
     expect(isCnpj('10132002256')).toBe(false);
     expect(isCnpj('10113200536')).toBe(false);
     expect(isCnpj('02213415285')).toBe(false);
   });
-});
 
+  test('CNPJ alfanumérico válido (gerado pela lib)', () => {
+    const generated = cnpj.generate();
+    expect(isCnpj(generated)).toBe(true);
+  });
+
+  test('CNPJ alfanumérico minúsculo é normalizado para maiúsculo', () => {
+    const generated = cnpj.generate();
+    expect(isCnpj(generated.toLowerCase())).toBe(true);
+  });
+
+  test('CNPJ alfanumérico inválido (DV errado)', () => {
+    expect(isCnpj('12ABC34501DE99')).toBe(false);
+  });
+
+  test('valor vazio retorna false', () => {
+    expect(isCnpj('')).toBe(false);
+  });
+});
