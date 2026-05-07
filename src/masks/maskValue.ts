@@ -11,6 +11,7 @@ const stripFor = (value: string, type: MaskType): string => (
 
 const patternFor = (type: MaskType, stripped: string): string => {
   if (type === 'cpf_cnpj') {
+    if (/[A-Z]/.test(stripped)) return MASKS.CNPJ;
     return stripped.length <= 11 ? MASKS.CPF : MASKS.CNPJ;
   }
 
