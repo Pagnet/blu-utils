@@ -1,7 +1,7 @@
 import 'jest';
 
-import { isCnpj } from '../src';
 import { cnpj } from 'cpf-cnpj-validator';
+import { isCnpj } from '../src';
 
 describe('test isCnpj', () => {
   test('spec black list', () => {
