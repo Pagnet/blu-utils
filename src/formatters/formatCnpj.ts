@@ -1,11 +1,13 @@
-const formatCnpj = (value: string): string => {
-  const formattedValue = value.replace(/\D/g, '').slice(0, 14);
+import VMasker from 'vanilla-masker';
+import { MASKS } from '../masks/masks';
+import { stripAlphanumeric } from '../masks/strip';
 
-  return formattedValue
-    .replace(/^(\d{2})(\d)/, '$1.$2')
-    .replace(/^(\d{2})\.(\d{3})(\d)/, '$1.$2.$3')
-    .replace(/^(\d{2})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3/$4')
-    .replace(/^(\d{2})\.(\d{3})\.(\d{3})\/(\d{4})(\d)/, '$1.$2.$3/$4-$5');
+const formatCnpj = (value: string): string => {
+  if (!value) return '';
+
+  const stripped = stripAlphanumeric(value).slice(0, 14);
+
+  return VMasker.toPattern(stripped, MASKS.CNPJ);
 };
 
 export default formatCnpj;

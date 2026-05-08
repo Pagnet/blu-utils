@@ -5,10 +5,10 @@ describe('normalizeDate', () => {
   test('should return the expected formatted date for type "bigger"', () => {
     const result = normalizeDate('2023-12-12 23:39:25.756Z', 'bigger');
     expect(result).toBe(
-      'terça-feira, 12 de dezembro de 2023 23:39:25 Horário Padrão de Brasília',
+      'terça-feira, 12 de dezembro de 2023 às 23:39:25 Horário Padrão de Brasília',
     );
     expect(result).not.toBe(
-      'terça-feira, 12 de dezembro de 2023 0:00:00 Horário Padrão de Brasília',
+      'terça-feira, 12 de dezembro de 2023 às 0:00:00 Horário Padrão de Brasília',
     );
   });
 

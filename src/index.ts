@@ -25,6 +25,16 @@ export { default as isCpf } from './validations/isCpf';
 export { default as isCnpj } from './validations/isCnpj';
 export { default as isPis } from './validations/isPis';
 
+// masks
+export { default as maskValue } from './masks/maskValue';
+export { default as maskInput } from './masks/maskInput';
+export { default as maskCpf } from './masks/maskCpf';
+export { default as maskCpfOrCnpj } from './masks/maskCpfOrCnpj';
+export { default as maskComplete } from './masks/maskComplete';
+export { default as setupMultipleMask } from './masks/setupMultipleMask';
+export { default as maskHintBankAccount } from './masks/maskHintBankAccount';
+export type { MaskType, CurrencyMaskOptions, BankCompensationCode } from './masks/types';
+
 // breakpoints
 
 export { default as breakpointFrom } from './styles/breakpointFrom';

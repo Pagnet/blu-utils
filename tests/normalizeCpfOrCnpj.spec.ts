@@ -13,5 +13,13 @@ describe('test isCPF', () => {
     expect(normalizeCpfOrCnpj('80985211000160')).toBe('80.985.211/0001-60');
     expect(normalizeCpfOrCnpj('11674478000113')).toBe('11.674.478/0001-13');
   });
+  test('CNPJ alfanumérico', () => {
+    expect(normalizeCpfOrCnpj('12ABC34501DE35')).toBe('12.ABC.345/01DE-35');
+  });
+  test('CNPJ alfanumérico minúsculo', () => {
+    expect(normalizeCpfOrCnpj('12abc34501de35')).toBe('12.ABC.345/01DE-35');
+  });
+  test('valor vazio', () => {
+    expect(normalizeCpfOrCnpj('')).toBe('');
+  });
 });
-
