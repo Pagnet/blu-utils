@@ -1,5 +1,11 @@
 import VMasker from 'vanilla-masker';
-import { MASKS, CURRENCY_MASK_DEFAULTS, PERCENTAGE_MASK_DEFAULTS, DEFAULT_BANK_BRANCH_MASK, DEFAULT_BANK_ACCOUNT_MASK } from './masks';
+import {
+  MASKS,
+  CURRENCY_MASK_DEFAULTS,
+  PERCENTAGE_MASK_DEFAULTS,
+  DEFAULT_BANK_BRANCH_MASK,
+  DEFAULT_BANK_ACCOUNT_MASK,
+} from './masks';
 import { stripAlphanumeric, stripNumeric } from './strip';
 import type { MaskType, CurrencyMaskOptions } from './types';
 

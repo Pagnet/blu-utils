@@ -1,4 +1,8 @@
-import { MASKS, DEFAULT_BANK_BRANCH_MASK, DEFAULT_BANK_ACCOUNT_MASK } from './masks';
+import {
+  MASKS,
+  DEFAULT_BANK_BRANCH_MASK,
+  DEFAULT_BANK_ACCOUNT_MASK,
+} from './masks';
 import { stripAlphanumeric, stripNumeric, PATTERN_PLACEHOLDER_REGEX } from './strip';
 import type { MaskType } from './types';
 
