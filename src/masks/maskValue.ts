@@ -1,5 +1,5 @@
 import VMasker from 'vanilla-masker';
-import { MASKS, CURRENCY_MASK_DEFAULTS, PERCENTAGE_MASK_DEFAULTS } from './masks';
+import { MASKS, CURRENCY_MASK_DEFAULTS, PERCENTAGE_MASK_DEFAULTS, DEFAULT_BANK_BRANCH_MASK, DEFAULT_BANK_ACCOUNT_MASK } from './masks';
 import { stripAlphanumeric, stripNumeric } from './strip';
 import type { MaskType, CurrencyMaskOptions } from './types';
 
@@ -25,6 +25,8 @@ const patternFor = (type: MaskType, stripped: string): string => {
     case 'barCodeUtilities': return MASKS.BAR_CODE_UTILITIES;
     case 'darf': return MASKS.DARF;
     case 'number': return MASKS.NUMBER;
+    case 'bank_branch': return DEFAULT_BANK_BRANCH_MASK;
+    case 'bank_account': return DEFAULT_BANK_ACCOUNT_MASK;
     default: return '';
   }
 };

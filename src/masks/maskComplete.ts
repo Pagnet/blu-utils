@@ -1,4 +1,4 @@
-import { MASKS } from './masks';
+import { MASKS, DEFAULT_BANK_BRANCH_MASK, DEFAULT_BANK_ACCOUNT_MASK } from './masks';
 import { stripAlphanumeric, stripNumeric, PATTERN_PLACEHOLDER_REGEX } from './strip';
 import type { MaskType } from './types';
 
@@ -20,6 +20,8 @@ const patternFor = (type: MaskType): string | null => {
     case 'barCodeUtilities': return MASKS.BAR_CODE_UTILITIES;
     case 'darf': return MASKS.DARF;
     case 'number': return MASKS.NUMBER;
+    case 'bank_branch': return DEFAULT_BANK_BRANCH_MASK;
+    case 'bank_account': return DEFAULT_BANK_ACCOUNT_MASK;
     default: return null;
   }
 };

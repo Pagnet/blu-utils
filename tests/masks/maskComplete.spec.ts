@@ -42,4 +42,28 @@ describe('maskComplete', () => {
   test('zipcode completo', () => {
     expect(maskComplete('01310-100', 'zipcode')).toBe(true);
   });
+
+  test('bank_branch completo (4 dígitos)', () => {
+    expect(maskComplete('1234', 'bank_branch')).toBe(true);
+  });
+
+  test('bank_branch incompleto', () => {
+    expect(maskComplete('12', 'bank_branch')).toBe(false);
+  });
+
+  test('bank_account completo (noop 12+1 dígitos)', () => {
+    expect(maskComplete('1234567890123', 'bank_account')).toBe(true);
+  });
+
+  test('bank_account incompleto', () => {
+    expect(maskComplete('12345', 'bank_account')).toBe(false);
+  });
+
+  test('darf completo (13 dígitos)', () => {
+    expect(maskComplete('1234567890123', 'darf')).toBe(true);
+  });
+
+  test('darf incompleto', () => {
+    expect(maskComplete('1234', 'darf')).toBe(false);
+  });
 });

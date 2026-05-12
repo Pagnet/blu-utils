@@ -66,6 +66,33 @@ describe('maskValue', () => {
     });
   });
 
+  describe('darf', () => {
+    test('formata número de referência DARF', () => {
+      expect(maskValue('1234567890123', 'darf')).toBe('12 3 45 678901-23');
+    });
+    test('strip de separadores antes de aplicar', () => {
+      expect(maskValue('12 3 45 678901-23', 'darf')).toBe('12 3 45 678901-23');
+    });
+  });
+
+  describe('bank_branch', () => {
+    test('formata agência padrão (4 dígitos)', () => {
+      expect(maskValue('1234', 'bank_branch')).toBe('1234');
+    });
+    test('strip de caracteres não numéricos', () => {
+      expect(maskValue('12-34', 'bank_branch')).toBe('1234');
+    });
+  });
+
+  describe('bank_account', () => {
+    test('formata conta padrão noop (12 dígitos + DV)', () => {
+      expect(maskValue('1234567890123', 'bank_account')).toBe('123456789012-3');
+    });
+    test('strip de separadores antes de aplicar', () => {
+      expect(maskValue('123456789012-3', 'bank_account')).toBe('123456789012-3');
+    });
+  });
+
   describe('edge cases', () => {
     test('null retorna empty string', () => {
       expect(maskValue(null, 'cpf')).toBe('');

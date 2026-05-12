@@ -10,7 +10,9 @@ export type MaskType =
   | 'darf'
   | 'number'
   | 'currency'
-  | 'percentage';
+  | 'percentage'
+  | 'bank_branch'
+  | 'bank_account';
 
 export interface CurrencyMaskOptions {
   precision?: number;
