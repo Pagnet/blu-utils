@@ -11,6 +11,7 @@ export type MaskType =
   | 'number'
   | 'currency'
   | 'percentage'
+  | 'phone_idd'
   | 'bank_branch'
   | 'bank_account';
 
