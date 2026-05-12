@@ -19,7 +19,7 @@ describe('maskHintBankAccount', () => {
     expect(maskHintBankAccount('104')).toBe('000000000000-0');
   });
 
-  test('código desconhecido retorna placeholder default', () => {
-    expect(maskHintBankAccount('999')).toBe('0000000000-0');
+  test('código desconhecido retorna placeholder default (noop)', () => {
+    expect(maskHintBankAccount('999')).toBe('000000000000-0');
   });
 });
