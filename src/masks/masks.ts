@@ -36,7 +36,9 @@ export const BANK_BRANCH_MASKS: Partial<Record<BankCompensationCode, string>> = 
 
 export const DEFAULT_BANK_BRANCH_MASK = '9999';
 
-export const BANK_ACCOUNT_MASKS: Record<BankCompensationCode, string> = {
+export const ALPHANUMERIC_BANK_CODES: ReadonlyArray<BankCompensationCode> = ['1'];
+
+export const BANK_ACCOUNT_MASKS: Partial<Record<BankCompensationCode, string>> = {
   1: '99999999-S',
   33: '99999999-9',
   41: '999999999-9',

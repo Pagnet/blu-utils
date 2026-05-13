@@ -11,11 +11,11 @@ describe('maskBankBranch', () => {
     expect(maskBankBranch('1234', '1')).toBe('1234');
   });
 
-  test('agência Banco do Brasil (001)', () => {
+  test('agência Banco do Brasil (1)', () => {
     expect(maskBankBranch('1234', '1')).toBe('1234');
   });
 
-  test('agência Santander (033)', () => {
+  test('agência Santander (33)', () => {
     expect(maskBankBranch('1234', '33')).toBe('1234');
   });
 

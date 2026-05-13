@@ -75,8 +75,16 @@ describe('maskComplete', () => {
     expect(maskComplete('12345', 'bank_account')).toBe(false);
   });
 
-  test('bank_account completo com compensationCode BB (1)', () => {
+  test('bank_account completo com compensationCode BB (1) — posicional', () => {
     expect(maskComplete('123456789', 'bank_account', '1')).toBe(true);
+  });
+
+  test('bank_account completo com compensationCode BB (1) — options', () => {
+    expect(maskComplete('123456789', 'bank_account', { compensationCode: '1' })).toBe(true);
+  });
+
+  test('bank_account completo com DV alfanumérico BB (1)', () => {
+    expect(maskComplete('12345678X', 'bank_account', { compensationCode: '1' })).toBe(true);
   });
 
   test('bank_account incompleto com compensationCode BB (1)', () => {

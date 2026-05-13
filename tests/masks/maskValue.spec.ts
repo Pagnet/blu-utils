@@ -112,6 +112,9 @@ describe('maskValue', () => {
     test('com compensationCode BB (1) usa padrão 99999999-S', () => {
       expect(maskValue('123456789', 'bank_account', { compensationCode: '1' })).toBe('12345678-9');
     });
+    test('com compensationCode BB (1) preserva DV alfanumérico', () => {
+      expect(maskValue('12345678X', 'bank_account', { compensationCode: '1' })).toBe('12345678-X');
+    });
     test('com compensationCode Bradesco (237) usa padrão 9999999-9', () => {
       expect(maskValue('12345678', 'bank_account', { compensationCode: '237' })).toBe('1234567-8');
     });

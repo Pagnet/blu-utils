@@ -37,6 +37,7 @@ export { default as maskBankBranch } from './masks/maskBankBranch';
 export { default as maskBankAccount } from './masks/maskBankAccount';
 export type { MaskType, CurrencyMaskOptions, BankCompensationCode } from './masks/types';
 export type { MaskValueOptions } from './masks/maskValue';
+export type { MaskCompleteOptions } from './masks/maskComplete';
 
 // breakpoints
 

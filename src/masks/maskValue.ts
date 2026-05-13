@@ -7,19 +7,32 @@ import {
   DEFAULT_BANK_ACCOUNT_MASK,
   BANK_BRANCH_MASKS,
   BANK_ACCOUNT_MASKS,
+  ALPHANUMERIC_BANK_CODES,
 } from './masks';
 import { stripAlphanumeric, stripNumeric } from './strip';
 import type { MaskType, CurrencyMaskOptions, BankCompensationCode } from './types';
 
+/**
+ * Options for `maskValue`. Extends `CurrencyMaskOptions` so that currency/percentage
+ * formatting options and `compensationCode` (used only by `bank_branch`/`bank_account`)
+ * can be passed through a single options object.
+ */
 export interface MaskValueOptions extends CurrencyMaskOptions {
   compensationCode?: string;
 }
 
 const ALPHANUMERIC_MASKS: ReadonlyArray<MaskType> = ['cnpj', 'cpf_cnpj'];
 
-const stripFor = (value: string, type: MaskType): string => (
-  ALPHANUMERIC_MASKS.includes(type) ? stripAlphanumeric(value) : stripNumeric(value)
-);
+const stripFor = (value: string, type: MaskType, compensationCode?: string): string => {
+  if (ALPHANUMERIC_MASKS.includes(type)) return stripAlphanumeric(value);
+  if (
+    (type === 'bank_account' || type === 'bank_branch')
+    && ALPHANUMERIC_BANK_CODES.includes(compensationCode as BankCompensationCode)
+  ) {
+    return stripAlphanumeric(value);
+  }
+  return stripNumeric(value);
+};
 
 const bankBranchPattern = (code?: string): string => {
   if (code) {
@@ -81,7 +94,7 @@ export default function maskValue(
     return VMasker.toMoney(stringValue, { ...PERCENTAGE_MASK_DEFAULTS, ...(options || {}) });
   }
 
-  const stripped = stripFor(stringValue, type);
+  const stripped = stripFor(stringValue, type, options?.compensationCode);
   const pattern = patternFor(type, stripped, options?.compensationCode);
 
   if (!pattern) return stringValue;
