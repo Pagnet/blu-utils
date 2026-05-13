@@ -33,7 +33,11 @@ export { default as maskCpfOrCnpj } from './masks/maskCpfOrCnpj';
 export { default as maskComplete } from './masks/maskComplete';
 export { default as setupMultipleMask } from './masks/setupMultipleMask';
 export { default as maskHintBankAccount } from './masks/maskHintBankAccount';
+export { default as maskBankBranch } from './masks/maskBankBranch';
+export { default as maskBankAccount } from './masks/maskBankAccount';
 export type { MaskType, CurrencyMaskOptions, BankCompensationCode } from './masks/types';
+export type { MaskValueOptions } from './masks/maskValue';
+export type { MaskCompleteOptions } from './masks/maskComplete';
 
 // breakpoints
 

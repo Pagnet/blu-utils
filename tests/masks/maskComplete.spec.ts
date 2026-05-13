@@ -42,4 +42,60 @@ describe('maskComplete', () => {
   test('zipcode completo', () => {
     expect(maskComplete('01310-100', 'zipcode')).toBe(true);
   });
+
+  test('phone_idd completo', () => {
+    expect(maskComplete('+55 (11) 99999-8888', 'phone_idd')).toBe(true);
+  });
+
+  test('phone_idd incompleto', () => {
+    expect(maskComplete('5511', 'phone_idd')).toBe(false);
+  });
+
+  test('bank_branch completo (4 dígitos)', () => {
+    expect(maskComplete('1234', 'bank_branch')).toBe(true);
+  });
+
+  test('bank_branch incompleto', () => {
+    expect(maskComplete('12', 'bank_branch')).toBe(false);
+  });
+
+  test('bank_branch completo com compensationCode Itaú (341)', () => {
+    expect(maskComplete('123456', 'bank_branch', '341')).toBe(true);
+  });
+
+  test('bank_branch incompleto com compensationCode Itaú (341)', () => {
+    expect(maskComplete('1234', 'bank_branch', '341')).toBe(false);
+  });
+
+  test('bank_account completo (noop 12+1 dígitos)', () => {
+    expect(maskComplete('1234567890123', 'bank_account')).toBe(true);
+  });
+
+  test('bank_account incompleto', () => {
+    expect(maskComplete('12345', 'bank_account')).toBe(false);
+  });
+
+  test('bank_account completo com compensationCode BB (1) — posicional', () => {
+    expect(maskComplete('123456789', 'bank_account', '1')).toBe(true);
+  });
+
+  test('bank_account completo com compensationCode BB (1) — options', () => {
+    expect(maskComplete('123456789', 'bank_account', { compensationCode: '1' })).toBe(true);
+  });
+
+  test('bank_account completo com DV alfanumérico BB (1)', () => {
+    expect(maskComplete('12345678X', 'bank_account', { compensationCode: '1' })).toBe(true);
+  });
+
+  test('bank_account incompleto com compensationCode BB (1)', () => {
+    expect(maskComplete('12345', 'bank_account', '1')).toBe(false);
+  });
+
+  test('darf completo (13 dígitos)', () => {
+    expect(maskComplete('1234567890123', 'darf')).toBe(true);
+  });
+
+  test('darf incompleto', () => {
+    expect(maskComplete('1234', 'darf')).toBe(false);
+  });
 });
