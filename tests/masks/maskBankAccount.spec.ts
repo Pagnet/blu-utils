@@ -55,9 +55,9 @@ describe('maskBankAccount', () => {
     });
   });
 
-  describe('Banco Original (213)', () => {
+  describe('Arbi (213)', () => {
     test('formata conta com dígito', () => {
-      expect(maskBankAccount('12345678', '213')).toBe('1234567-8');
+      expect(maskBankAccount('12345678', '213')).toBe('12345-6');
     });
   });
 

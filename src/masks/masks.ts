@@ -47,7 +47,7 @@ export const BANK_ACCOUNT_MASKS: Partial<Record<BankCompensationCode, string>> =
   33: '99999999-9',
   41: '999999999-9',
   104: '999999999-9',
-  213: '9999999-9',
+  213: '99999-9',
   237: '9999999-9',
   341: '99999-9',
   399: '999999-9',
