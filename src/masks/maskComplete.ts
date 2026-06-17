@@ -2,9 +2,7 @@ import {
   MASKS,
   DEFAULT_BANK_BRANCH_MASK,
   DEFAULT_BANK_ACCOUNT_MASK,
-  BANK_BRANCH_MASKS,
   BANK_ACCOUNT_MASKS,
-  ALPHANUMERIC_BANK_CODES,
 } from './masks';
 import { stripAlphanumeric, stripNumeric, PATTERN_PLACEHOLDER_REGEX } from './strip';
 import type { MaskType, BankCompensationCode } from './types';
@@ -31,13 +29,7 @@ const patternFor = (
     case 'barCodeUtilities': return MASKS.BAR_CODE_UTILITIES;
     case 'darf': return MASKS.DARF;
     case 'number': return MASKS.NUMBER;
-    case 'bank_branch': {
-      if (compensationCode) {
-        const mapped = BANK_BRANCH_MASKS[compensationCode as BankCompensationCode];
-        if (mapped) return mapped;
-      }
-      return DEFAULT_BANK_BRANCH_MASK;
-    }
+    case 'bank_branch': return DEFAULT_BANK_BRANCH_MASK;
     case 'bank_account': {
       if (compensationCode) {
         const mapped = BANK_ACCOUNT_MASKS[compensationCode as BankCompensationCode];
@@ -76,11 +68,7 @@ export default function maskComplete(
 
   const expected = placeholdersInPattern(pattern);
 
-  const isAlphanumeric = ALPHANUMERIC_MASKS.includes(type)
-    || (
-      (type === 'bank_account' || type === 'bank_branch')
-      && ALPHANUMERIC_BANK_CODES.includes(compensationCode as BankCompensationCode)
-    );
+  const isAlphanumeric = ALPHANUMERIC_MASKS.includes(type);
 
   const stripped = isAlphanumeric
     ? stripAlphanumeric(value)

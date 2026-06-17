@@ -59,12 +59,12 @@ describe('maskComplete', () => {
     expect(maskComplete('12', 'bank_branch')).toBe(false);
   });
 
-  test('bank_branch completo com compensationCode Itaú (341)', () => {
-    expect(maskComplete('123456', 'bank_branch', '341')).toBe(true);
+  test('bank_branch completo com compensationCode Itaú (341) são 4 dígitos', () => {
+    expect(maskComplete('1234', 'bank_branch', '341')).toBe(true);
   });
 
   test('bank_branch incompleto com compensationCode Itaú (341)', () => {
-    expect(maskComplete('1234', 'bank_branch', '341')).toBe(false);
+    expect(maskComplete('12', 'bank_branch', '341')).toBe(false);
   });
 
   test('bank_account completo (noop 12+1 dígitos)', () => {
@@ -83,8 +83,8 @@ describe('maskComplete', () => {
     expect(maskComplete('123456789', 'bank_account', { compensationCode: '1' })).toBe(true);
   });
 
-  test('bank_account completo com DV alfanumérico BB (1)', () => {
-    expect(maskComplete('12345678X', 'bank_account', { compensationCode: '1' })).toBe(true);
+  test('bank_account BB (1) com DV não numérico não conta como completo', () => {
+    expect(maskComplete('12345678X', 'bank_account', { compensationCode: '1' })).toBe(false);
   });
 
   test('bank_account incompleto com compensationCode BB (1)', () => {
