@@ -7,6 +7,10 @@ describe('maskBankAccount', () => {
     test('formata conta com dígito', () => {
       expect(maskBankAccount('123456789', '1')).toBe('12345678-9');
     });
+
+    test('DV é numérico: caractere não numérico é removido', () => {
+      expect(maskBankAccount('12345678X', '1')).toBe('12345678');
+    });
   });
 
   describe('Santander (33)', () => {
@@ -28,8 +32,8 @@ describe('maskBankAccount', () => {
   });
 
   describe('CEF (104)', () => {
-    test('formata conta longa com dígito', () => {
-      expect(maskBankAccount('1234567890123', '104')).toBe('123456789012-3');
+    test('formata conta com dígito (9 dígitos, sem operação)', () => {
+      expect(maskBankAccount('1234567890123', '104')).toBe('123456789-0');
     });
   });
 

@@ -16,7 +16,7 @@ describe('maskHintBankAccount', () => {
   });
 
   test('CEF (104)', () => {
-    expect(maskHintBankAccount('104')).toBe('000000000000-0');
+    expect(maskHintBankAccount('104')).toBe('000000000-0');
   });
 
   test('código desconhecido retorna placeholder default (noop)', () => {

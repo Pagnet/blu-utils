@@ -19,11 +19,11 @@ describe('maskBankBranch', () => {
     expect(maskBankBranch('1234', '33')).toBe('1234');
   });
 
-  test('agência Itaú (341) com dígito verificador', () => {
-    expect(maskBankBranch('123456', '341')).toBe('12345-6');
+  test('agência Itaú (341) tem 4 dígitos sem DV', () => {
+    expect(maskBankBranch('123456', '341')).toBe('1234');
   });
 
-  test('agência Itaú (341) parcial', () => {
+  test('agência Itaú (341) com 4 dígitos', () => {
     expect(maskBankBranch('1234', '341')).toBe('1234');
   });
 

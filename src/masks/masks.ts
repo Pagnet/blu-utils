@@ -30,19 +30,23 @@ export const PERCENTAGE_MASK_DEFAULTS: CurrencyMaskOptions = {
   zeroCents: false,
 };
 
-export const BANK_BRANCH_MASKS: Partial<Record<BankCompensationCode, string>> = {
-  341: '99999-9',
-};
+// Toda agência bancária é informada com 4 dígitos no frontend. Quando o banco
+// exige dígito verificador na agência (BB, Banrisul, Bradesco, Arbi), o DV é
+// calculado/validado pelo backend a partir dos 4 dígitos — não pelo input.
+// Por isso não há override por banco aqui: todos usam DEFAULT_BANK_BRANCH_MASK.
+export const BANK_BRANCH_MASKS: Partial<Record<BankCompensationCode, string>> = {};
 
 export const DEFAULT_BANK_BRANCH_MASK = '9999';
 
-export const ALPHANUMERIC_BANK_CODES: ReadonlyArray<BankCompensationCode> = ['1'];
+// Nenhum banco usa DV alfanumérico em conta: o backend valida DV apenas
+// numérico (/-\d/) e a UI orienta o usuário a trocar "X" por "0" (ex.: BB).
+export const ALPHANUMERIC_BANK_CODES: ReadonlyArray<BankCompensationCode> = [];
 
 export const BANK_ACCOUNT_MASKS: Partial<Record<BankCompensationCode, string>> = {
-  1: '99999999-S',
+  1: '99999999-9',
   33: '99999999-9',
   41: '999999999-9',
-  104: '999999999999-9',
+  104: '999999999-9',
   213: '9999999-9',
   237: '9999999-9',
   341: '99999-9',

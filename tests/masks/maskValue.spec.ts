@@ -91,8 +91,8 @@ describe('maskValue', () => {
     test('strip de caracteres não numéricos', () => {
       expect(maskValue('12-34', 'bank_branch')).toBe('1234');
     });
-    test('com compensationCode Itaú (341) usa padrão 99999-9', () => {
-      expect(maskValue('123456', 'bank_branch', { compensationCode: '341' })).toBe('12345-6');
+    test('com compensationCode Itaú (341) usa 4 dígitos (sem DV)', () => {
+      expect(maskValue('123456', 'bank_branch', { compensationCode: '341' })).toBe('1234');
     });
     test('com compensationCode desconhecido usa padrão noop', () => {
       expect(maskValue('1234', 'bank_branch', { compensationCode: '999' })).toBe('1234');
@@ -109,11 +109,11 @@ describe('maskValue', () => {
     test('strip de separadores antes de aplicar', () => {
       expect(maskValue('123456789012-3', 'bank_account')).toBe('123456789012-3');
     });
-    test('com compensationCode BB (1) usa padrão 99999999-S', () => {
+    test('com compensationCode BB (1) usa padrão 99999999-9', () => {
       expect(maskValue('123456789', 'bank_account', { compensationCode: '1' })).toBe('12345678-9');
     });
-    test('com compensationCode BB (1) preserva DV alfanumérico', () => {
-      expect(maskValue('12345678X', 'bank_account', { compensationCode: '1' })).toBe('12345678-X');
+    test('com compensationCode BB (1) usa DV numérico (X é removido)', () => {
+      expect(maskValue('12345678X', 'bank_account', { compensationCode: '1' })).toBe('12345678');
     });
     test('com compensationCode Bradesco (237) usa padrão 9999999-9', () => {
       expect(maskValue('12345678', 'bank_account', { compensationCode: '237' })).toBe('1234567-8');
