@@ -5,9 +5,7 @@ import {
   PERCENTAGE_MASK_DEFAULTS,
   DEFAULT_BANK_BRANCH_MASK,
   DEFAULT_BANK_ACCOUNT_MASK,
-  BANK_BRANCH_MASKS,
   BANK_ACCOUNT_MASKS,
-  ALPHANUMERIC_BANK_CODES,
 } from './masks';
 import { stripAlphanumeric, stripNumeric } from './strip';
 import type { MaskType, CurrencyMaskOptions, BankCompensationCode } from './types';
@@ -23,23 +21,9 @@ export interface MaskValueOptions extends CurrencyMaskOptions {
 
 const ALPHANUMERIC_MASKS: ReadonlyArray<MaskType> = ['cnpj', 'cpf_cnpj'];
 
-const stripFor = (value: string, type: MaskType, compensationCode?: string): string => {
+const stripFor = (value: string, type: MaskType): string => {
   if (ALPHANUMERIC_MASKS.includes(type)) return stripAlphanumeric(value);
-  if (
-    (type === 'bank_account' || type === 'bank_branch')
-    && ALPHANUMERIC_BANK_CODES.includes(compensationCode as BankCompensationCode)
-  ) {
-    return stripAlphanumeric(value);
-  }
   return stripNumeric(value);
-};
-
-const bankBranchPattern = (code?: string): string => {
-  if (code) {
-    const mapped = BANK_BRANCH_MASKS[code as BankCompensationCode];
-    if (mapped) return mapped;
-  }
-  return DEFAULT_BANK_BRANCH_MASK;
 };
 
 const bankAccountPattern = (code?: string): string => {
@@ -71,7 +55,7 @@ const patternFor = (
     case 'barCodeUtilities': return MASKS.BAR_CODE_UTILITIES;
     case 'darf': return MASKS.DARF;
     case 'number': return MASKS.NUMBER;
-    case 'bank_branch': return bankBranchPattern(compensationCode);
+    case 'bank_branch': return DEFAULT_BANK_BRANCH_MASK;
     case 'bank_account': return bankAccountPattern(compensationCode);
     default: return '';
   }
@@ -94,7 +78,7 @@ export default function maskValue(
     return VMasker.toMoney(stringValue, { ...PERCENTAGE_MASK_DEFAULTS, ...(options || {}) });
   }
 
-  const stripped = stripFor(stringValue, type, options?.compensationCode);
+  const stripped = stripFor(stringValue, type);
   const pattern = patternFor(type, stripped, options?.compensationCode);
 
   if (!pattern) return stringValue;
