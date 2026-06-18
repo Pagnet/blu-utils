@@ -16,6 +16,7 @@ export { default as normalizeSocialNumber } from './normalizers/normalizeSocialN
 // utils
 export { default as maskString } from './utils/maskString';
 export { default as stripNumbers } from './utils/stripNumbers';
+export { default as stripCpfCnpj } from './utils/stripCpfCnpj';
 export { default as getStates } from './utils/getStates';
 export { default as snakeToCamel } from './utils/snakeToCamel';
 export { default as camelToSnake } from './utils/camelToSnake';
